@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+  <h1>Create Account</h1>
+
+  <form action="/createAccount" method="POST">
+    <label for="fname">First Name</label>
+    <input id="fname" name="fname" required type="text">
+
+    <label for="lname">Last Name</label>
+    <input id="lname" name="lname" required type="text">
+
+    <label for="email">Email</label>
+    <input id="email" name="email" required type="email">
+
+    <label for="password">Password</label>
+    <input id="password" name="password" required type="password">
+
+    <button type="submit">Create Account</button>
+  </form>
+
+  <p>Already have an account? <a href="/login">Login here</a></p>
+
+  <%- include('partials/footer') %>

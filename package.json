@@ -1,0 +1,23 @@
+{
+  "name": "group_assignment",
+  "version": "1.0.0",
+  "description": "1. Create new Express app with EJS template 2. Create Mongoose connection and Movie model with attributes for name, description, year, genres, rating. You are allowed to add one more field of your choice 3. Create router to store routes in movies.js 4. Create form to collect data for movie and render errors 5. Create route for add movie ,Validate user input, and returns errors 6. Create route with param of id and form to display movie details 7. Create route with param of id and form to edit movie details 8. Create route and form with error validation for registration 9. Create route and form with error validation for login 10. Create route for logout 11. Restrict access to add movie to logged in users 12. Restrict access to edit/delete movie to users who posted/added movie 13. Deploy application to Heroku/vercel and submit all details, code , browser screenshot in blackboard 14. Choose the design/layout of your choice",
+  "main": "projectApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "express-validator": "^7.3.2",
+    "mongodb": "^7.1.1",
+    "mongoose": "^9.4.1"
+  }
+}

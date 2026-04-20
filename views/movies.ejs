@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+  <h1>My Movie Collection</h1>
+
+  <section>
+    <h2>Add New Movie</h2>
+    <form action="/movies" method="POST">
+      <input name="mtitle" placeholder="Movie Title" required type="text">
+      <input name="myear" placeholder="Release Year" type="number">
+
+      <input name="mgenre" placeholder="Genre (e.g. Sci-Fi, Drama)" type="text">
+      <input name="mdirector" placeholder="Director" type="text">
+
+      <textarea name="mdesc" placeholder="Description"></textarea>
+
+      <select name="mrating">
+        <option value="">Select Rating</option>
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+      </select>
+
+      <button type="submit">Add Movie</button>
+    </form>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Saved Movies</h2>
+    <% if (movies && movies.length> 0) { %>
+      <ul>
+        <% movies.forEach(movie=> { %>
+          <li>
+            <strong>
+              <%= movie.title %>
+            </strong> (<%= movie.year %>)
+              <div class="actions">
+                <a href="/editMovie/<%= movie._id %>">Edit</a>
+                <form action="/deleteMovie/<%= movie._id %>" method="POST" style="display:inline; width:auto;">
+                  <button onclick="return confirm('Delete this movie?')" type="submit">Delete</button>
+                </form>
+              </div>
+          </li>
+          <% }) %>
+      </ul>
+      <% } else { %>
+        <p>No movies found. Add one above!</p>
+        <% } %>
+  </section>
+
+  <%- include('partials/footer') %>

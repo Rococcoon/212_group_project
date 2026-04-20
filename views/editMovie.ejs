@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+  <h1>Edit Movie</h1>
+
+  <form action="/editMovie/<%= movie._id %>" method="POST">
+    <label for="mtitle">Movie Title</label>
+    <input id="mtitle" name="mtitle" required type="text" value="<%= movie.title %>">
+
+    <label for="myear">Release Year</label>
+    <input id="myear" name="myear" type="number" value="<%= movie.year %>">
+
+    <label for="mgenre">Genre</label>
+    <input id="mgenre" name="mgenre" type="text" value="<%= movie.genre %>">
+
+    <label for="mdirector">Director</label>
+    <input id="mdirector" name="mdirector" type="text" value="<%= movie.director %>">
+
+    <label for="mdesc">Description</label>
+    <textarea id="mdesc" name="mdesc">
+      <%= movie.description %>
+    </textarea>
+
+    <label for="mrating">Rating</label>
+    <select id="mrating" name="mrating">
+      <option value="">Select Rating</option>
+      <option value="G" <%=movie.rating==='G' ? 'selected' : '' %>>G</option>
+      <option value="PG" <%=movie.rating==='PG' ? 'selected' : '' %>>PG</option>
+      <option value="PG-13" <%=movie.rating==='PG-13' ? 'selected' : '' %>>PG-13</option>
+      <option value="R" <%=movie.rating==='R' ? 'selected' : '' %>>R</option>
+    </select>
+
+    <button type="submit">Update Movie</button>
+    <a href="/movies">Cancel</a>
+  </form>
+
+  <%- include('partials/footer') %>

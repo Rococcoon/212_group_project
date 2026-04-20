@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+  <section class="hero">
+    <h1>Track Your Favorite Movies</h1>
+    <p>A simple way to manage your personal watch list and movie details.</p>
+
+    <% if (!user) { %>
+      <div class="cta-buttons">
+        <a href="/createAccount" class="btn">Get Started</a>
+        <a href="/login" class="btn secondary">Sign In</a>
+      </div>
+      <% } else { %>
+        <p>You are logged in. View your collection <a href="/movies">here</a>.</p>
+        <% } %>
+  </section>
+
+  <%- include('partials/footer') %>
