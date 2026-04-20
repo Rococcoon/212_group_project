@@ -79,9 +79,12 @@ router.post("/login", async (req, res) => {
     bcrypt.compare(req.body.password, result.password, (err, success) => {
       if (success) {
         req.session.loggedInUser = result;
-        res.redirect('/movies');
+        req.session.save((err) => {
+          if (err) return res.send("Session save error");
+          res.redirect('/movies');
+        });
       } else {
-        res.send("Invalid credentials");
+        res.redirect('/login');
       }
     });
   } else {
