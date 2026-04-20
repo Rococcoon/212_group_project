@@ -19,7 +19,11 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24,
+    secure: process.env.NODE_ENV === "production",
+    httpOnly: true,
+  }
 }))
 
 app.use('/', routes);
